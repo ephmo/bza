@@ -1,0 +1,13 @@
+image: alpine:latest
+
+create-pages:
+  stage: deploy
+  script:
+    - echo "Deploying to GitLab Pages..."
+  artifacts:
+    paths:
+      - public
+  pages:
+    publish: public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
